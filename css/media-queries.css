@@ -1,0 +1,32 @@
+/* mobile first CSS */
+
+    /* Set the font-family to sans-serif on the entire document.*/
+
+    /*
+        "skip to main content" should be centered vertically and horizontally
+        "skip to main" should have light-blue background color
+        "skip to main" should have a border of solid grey, probably 1 or 2 pixels
+     */
+
+    /* nav-links should have:
+        - background color of grey
+        - margin of maybe .4 or .5em
+        - Link text are centered vertically and horizontally
+     */
+
+    /*
+        header-img should have:
+        min-width of 339px
+        keep its aspect ratio
+        some margin, maybe .5em
+    */
+
+    /* All text in the sub-section should be italicized */
+
+    /* Footer needs:
+        copyright info on the left
+        social link-icons on the right.
+     */
+
+
+/* Desktop size CSS goes below here */
