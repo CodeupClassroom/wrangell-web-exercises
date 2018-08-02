@@ -1,4 +1,4 @@
-.jumbotron {
+.pizza-hero-jumbotron {
     background-image: url("./pizza.png");
     background-size: cover;
     width: 100%;
@@ -6,7 +6,7 @@
     padding-right:0;
 }
 
-h1 {
+.pizza-hero-jumbotron h1 {
     background: rgba(255,255,255,.4);
     color: rgb(0,0,0,.7);
     width: 100%;
