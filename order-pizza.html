@@ -68,7 +68,7 @@
         </li>
     </ul>
 
-    <div class="card">
+    <div class="card"> <!-- size and crust -->
         <div class="card-header bg-primary text-white">Choose size and crust</div>
         <div class="card-body">
 
@@ -91,9 +91,6 @@
                 </ul>
             </div>
 
-            <!-- mt-x ml-x mb-x mr-x my-x mx-x where x is a number 1-5 -->
-            <!-- pt-x pl-x pb-x pr-x py-x px-x -->
-
             <div class="card my-3">
                 <div class="card-header">Crispy Thin</div>
                 <div class="card-body">Thin enough for optimum crispy to crunchy ratio.</div>
@@ -113,11 +110,61 @@
                 </ul>
             </div>
 
+
         </div>
         <div class="card-footer text-right">
-            <button class="btn btn-primary">Next Step</button>
+            <button class="btn btn-primary">Next Step ></button>
         </div>
-    </div>
+    </div> <!-- size and crust -->
+
+    <div class="card"> <!-- cheese and sauce -->
+        <div class="card-header bg-primary text-white">Choose Cheese and Sauce</div>
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">Cheese</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="howMuchCheese">How Much?</label>
+                        <select class="form-control" id="howMuchCheese">
+                            <option>Light</option>
+                            <option>Normal</option>
+                            <option>Extra</option>
+                            <option>Double</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Sauce</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="sauceType">What Type?</label>
+                        <select class="form-control" id="sauceType">
+                            <option>Tomato sauce</option>
+                            <option>Marinara sauce</option>
+                            <option>BBQ Sauce</option>
+                            <option>Alfredo Sauce</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="howMuchSauce">How Much?</label>
+                        <select class="form-control" id="howMuchSauce">
+                            <option>Light</option>
+                            <option>Normal</option>
+                            <option>Extra</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-right">
+            <div class="btn-group">
+                <button class="btn btn-primary">< Previous Step</button>
+                <button class="btn btn-primary">Next Step ></button>
+            </div>
+        </div>
+    </div> <!-- cheese and sauce -->
 
 </main>
 </body>
