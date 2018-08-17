@@ -103,6 +103,27 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
+    // var books = [];
+    // books.push(
+    //     {
+    //         title: "No Excuses",
+    //         author: {
+    //             firstName: "Brian",
+    //             lastName: "Tracy"
+    //         },
+    //         genre: "Nonfiction"
+    //     });
+    // books.push({title: "Crazy Rich Asians", author: {firstName: "Kevin", lastName: "Kwan"}, genre: "Contemporary Fiction"});
+    // books.push({title: "Medieval Punishments", author: {firstName: "William", lastName: "Andrews"}, genre: "History"});
+    // books.push({title: "Origin", author: {firstName: "Dan", lastName: "Brown"}, genre: "Contemporary Fiction"});
+    // books.push({title: "How to Break Code and Confuse People", author: {firstName: "Most", lastName: "Developers"}, genre: "Technology"});
+    // books.push({title: "The Alchemist", author: {firstName: "Paulo", lastName: "Coelho"}, genre: "Fiction"});
+    // books.push({title: "I'm Judging You, the Do Better Manual", author: {firstName: "Luvvie", lastName: "Ajayi"}, genre: "Self-Help"});
+    // books.push({title: "The Right Stuff", author: {firstName: "Tom", lastName: "Wolfe"}, genre: "History"});
+    // books.push({title: "The Giver", author: {firstName: "Lois", lastName: "Lowry"}, genre: "YA Fiction"});
+
+
+
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -128,6 +149,13 @@
      *      ...
      */
 
+    // books.forEach(function(book, id) {
+    //         console.log("Book # " + (id+1));
+    //         console.log("Title: " + book.title);
+    //         console.log("Author: " + book.author.firstName + " " + book.author.lastName)
+    // });
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -138,4 +166,42 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    var createBook = function (title, author) {
+        var book = {};
+        book.title = title;
+        if (typeof author == "string") {
+            var names = author.split(" ");
+            var authObj = {
+                firstName: names[0],
+                lastName: names[1]
+            }
+            book.author = authObj;
+        }
+        else if (typeof author === "object") {
+            book.author = author;
+        }
+        return book;
+    }
+
+    var showBookInfo = function (book, bookNum) {
+        console.log("Book # " + bookNum);
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName)
+    }
+
+    var books = [];
+    books.push(createBook("No Excuses", "Brian Tracy"))
+    books.push(createBook("Crazy Rich Asians", "Kevin Kwan"))
+    books.push(createBook("Medieval Punishments", "William Andrews"))
+    books.push(createBook("Origin", {firstName: "Dan", lastName: "Brown"}));
+    books.push(createBook("The Alchemist", "Paulo Coelho"));
+    books.push(createBook("I'm Judging You, the Do Better Manual", "Luvvie Ajayi"));
+    books.push(createBook("The Right Stuff", {firstName: "Tom", lastName: "Wolfe"}));
+    books.push(createBook("The Giver", "Lois Lowry"));
+    books.push(createBook("The Salmon of Doubt", "Douglas Adams"));
+
+    books.forEach(function(book, id) {
+        showBookInfo(book, id+1);
+    });
 
