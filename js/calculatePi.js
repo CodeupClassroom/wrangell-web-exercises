@@ -2,7 +2,7 @@ var calculatePi = function() {
 	var pi;
 
 	// using Javascript Math Object
-	// pi = Math.PI;
+	pi = Math.PI;
 
 	// Babylonian approximation
 	// pi = 25 / 8;
@@ -28,14 +28,13 @@ var calculatePi = function() {
 
 	// Madhava–Leibniz series
 	// approaches pi faster
-	// Right now there is a BUG here`
 	// var manyIterations = 100000;
 	// pi = 1;
 	// for (var i = 1;i<manyIterations;i++) {
 	// 	if (i%2==0) { //even
-	// 		pi -= 1/((1+2*i)*Math.pow(3,i));
-	// 	} else { //odd
 	// 		pi += 1/((1+2*i)*Math.pow(3,i));
+	// 	} else { //odd
+	// 		pi -= 1/((1+2*i)*Math.pow(3,i));
 	// 	}
 	// }
 	// pi *= Math.sqrt(12)
@@ -54,9 +53,10 @@ var calculatePi = function() {
 	// pi = 4 * inside / manyIterations;
 
 	// Used by NASA for calculations:
+	// https://www.jpl.nasa.gov/edu/news/2016/3/16/how-many-decimals-of-pi-do-we-really-need/
 	// pi = 3.141592653589793
 	// Pneumonic: 3. I Wish I Could Calculate Pi
-	pi = 3.141592
+	//	pi = 3.141592
 
 	return pi;
 }
