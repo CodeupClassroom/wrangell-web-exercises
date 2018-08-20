@@ -170,7 +170,10 @@
     var createBook = function (title, author) {
         var book = {};
         book.title = title;
-        if (typeof author == "string") {
+        if (typeof author === "object") {
+            book.author = author;
+        }
+        else if (typeof author == "string") {
             var names = author.split(" ");
             var authObj = {
                 firstName: names[0],
@@ -178,9 +181,7 @@
             }
             book.author = authObj;
         }
-        else if (typeof author === "object") {
-            book.author = author;
-        }
+
         return book;
     }
 
