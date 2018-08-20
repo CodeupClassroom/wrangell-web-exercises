@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document object model</title>
+</head>
+<body>
+
+<h1 id="title" class="header">Hi, Everybody!</h1>
+
+<ul>
+    <li data-dbid="1">this</li>
+    <li class="whatever">that</li>
+    <li>another</li>
+    <li>things</li>
+    <li>again</li>
+</ul>
+
+<script>
+
+    // after 1 second, change the h1 to say Hello Codeup and the style to change in some way
+    setTimeout(function() {
+        document.getElementsByTagName("h1")[0].innerText = "Hello, Codeup!";
+        document.getElementsByTagName("h1")[0].style.backgroundColor = "salmon";
+        document.getElementsByTagName("h1")[0].style.color = "#008080";
+
+        document.body.style.backgroundColor = "orange";
+
+    }, 1000);
+
+
+    // code below will iterate across all the list items.
+    // every 2 seconds the next list item will invert its text and background color
+    var i = 0;
+    var items = document.getElementsByTagName("li");
+
+    var intervalId = setInterval(function() {
+       if(i >= items.length) {
+           clearInterval(intervalId);
+       }
+
+       items[i].style.backgroundColor = "black";
+       items[i].style.color = "white";
+
+       i++;
+
+    }, 2000);
+
+
+</script>
+
+</body>
+</html>

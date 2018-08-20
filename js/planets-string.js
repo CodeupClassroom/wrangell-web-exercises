@@ -36,4 +36,4 @@
         + planetsArray.join(delimeter)
         + "</li></ul>";
 
-    console.log(planetsString);
+    document.body.innerHTML = planetsString;
