@@ -79,6 +79,9 @@
             text-align: center;
             font-size: 3em;
         }
+        .eighteenpx {
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -114,32 +117,61 @@
         </ul>
     </section>
 
+
 </main>
-    <div id="output"></div>
+    <div id="output">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at autem dignissimos expedita facere id inventore ipsa ipsam molestiae natus, nihil perspiciatis quasi reiciendis sunt vero. Adipisci aperiam laudantium nisi.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae dolores eveniet ex harum odit quam voluptatum. Aliquam, cupiditate delectus doloribus, enim, excepturi expedita explicabo id illo magnam mollitia tempore.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi beatae consectetur inventore ipsam, nihil nobis obcaecati omnis placeat provident quae quam, sed sit tempore! Assumenda nam nisi suscipit vel voluptate.</p>
+
+    </div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     "use strict";
 
-    function hoverIn(e) {
-        $(e.target).css("border", "2px solid grey");
-    }
+    var funColors= ["papayawhip", "thistle", "mistyrose", "azure", "lavender", "lightblue", "purple", "lightpurple", "salmon", "pink", "periwinkle", "cornsilk", "BlanchedAlmond"];
 
-    function hoverOut(e) {
-        $(e.target).css("border", "none");
-    }
+    $(function() {
+        $("h1").click(function() {
+            var randomColor = Math.floor(Math.random()*funColors.length);
+            $(this).css("background-color", funColors[randomColor]);
+        });
 
-    $("li").hover(hoverIn, hoverOut);
+        $("p").dblclick(function() {
+            $(this).toggleClass("eighteenpx");
+        });
+
+        $("li").hover(
+            function() {
+                $(this).css("color", "red");
+            },
+            function() {
+                $(this).css("color", "black");
+            }
+        )
 
 
-    $("li").click(function(event) {
-        var targetText = $(event.target).text();
-        $("#output").text("The text of the target is: " + targetText);
-    });
-
-    $("body").mousemove(function(event) {
-        $("#output").text("X: " + event.clientX + ", " + "Y: " + event.clientY);
-    });
+    })
+    // function hoverIn(e) {
+    //     $(e.target).css("border", "2px solid grey");
+    // }
+    //
+    // function hoverOut(e) {
+    //     $(e.target).css("border", "none");
+    // }
+    //
+    // $("li").hover(hoverIn, hoverOut);
+    //
+    //
+    // $("li").click(function(event) {
+    //     var targetText = $(event.target).text();
+    //     $("#output").text("The text of the target is: " + targetText);
+    // });
+    //
+    // $("body").mousemove(function(event) {
+    //     $("#output").text("X: " + event.clientX + ", " + "Y: " + event.clientY);
+    // });
 
 
 
