@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery exercises</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: azure;
+        }
+
+        nav {
+            background-color: papayawhip;
+            width: 100%;
+        }
+        nav li {
+            display: inline-block;
+            list-style: none;
+            padding: 2em;
+            font-family: "Trebuchet MS";
+        }
+        li:hover {
+            font-weight: bold;
+        }
+        main {
+            padding: 2em;
+        }
+        h1 {
+            text-align: center;
+            font-family: "American Typewriter";
+        }
+        main {
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+        header {
+            height: 5em;
+            padding: 0.5em;
+            background-color: lightblue;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            font-family: "Apple Chancery";
+        }
+        section {
+            width: 100%;
+            height: 40vh;
+            padding: 3em;
+            border-radius: 12%;
+
+        }
+        section > ul {
+            text-align: center;
+            padding-top: 1em;
+        }
+        section li {
+            list-style: none;
+            font-family: "Marker Felt";
+            padding: 1em;
+        }
+
+        .languages {
+            background-color: mistyrose;
+
+        }
+        .libraries {
+            background-color: thistle;
+        }
+        #output {
+            width: 100%;
+            height: 50vh;
+            background-color: lavender;
+            text-align: center;
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>Home</li>
+        <li id="about">About</li>
+        <li id="resume">Resume</li>
+        <li id="codeup">Codeup</li>
+    </ul>
+</nav>
+<header>
+    <h1>Hi, everyone!</h1>
+
+</header>
+<main>
+    <section class="languages">
+        <h2>Languages you learn at Codeup</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>Java</li>
+            <li>MySQL</li>
+        </ul>
+    </section>
+    <section class="libraries">
+        <h2>Libraries/frameworks you'll learn at Codeup</h2>
+        <ul>
+            <li>Bootstrap</li>
+            <li>jQuery</li>
+            <li>Spring</li>
+        </ul>
+    </section>
+
+</main>
+    <div id="output"></div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    "use strict";
+
+    function hoverIn(e) {
+        $(e.target).css("border", "2px solid grey");
+    }
+
+    function hoverOut(e) {
+        $(e.target).css("border", "none");
+    }
+
+    $("li").hover(hoverIn, hoverOut);
+
+
+    $("li").click(function(event) {
+        var targetText = $(event.target).text();
+        $("#output").text("The text of the target is: " + targetText);
+    });
+
+    $("body").mousemove(function(event) {
+        $("#output").text("X: " + event.clientX + ", " + "Y: " + event.clientY);
+    });
+
+
+
+
+
+</script>
+</body>
+</html>
