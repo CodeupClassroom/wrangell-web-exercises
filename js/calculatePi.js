@@ -16,7 +16,7 @@ var calculatePi = function() {
 
 	// using Gregory-Leibniz series 
 	// approaches pi
-	// var manyIterations = 1000000;
+	// var manyIterations = 10000000;
 	// pi = 4;
 	// for (var i = 1;i<manyIterations;i++) {
 	// 	if (i%2==0) { //even
@@ -28,7 +28,7 @@ var calculatePi = function() {
 
 	// Madhava–Leibniz series
 	// approaches pi faster
-	// var manyIterations = 100000;
+	// var manyIterations = 1000000;
 	// pi = 1;
 	// for (var i = 1;i<manyIterations;i++) {
 	// 	if (i%2==0) { //even
@@ -41,7 +41,7 @@ var calculatePi = function() {
 
 	// using Monte Carlo
 	// does not approach pi
-	// var manyIterations = 10000000;
+	// var manyIterations = 1000000;
 	// var x, y, r;
 	// var inside=0;
 	// for (var i=0;i<manyIterations;i++) {
@@ -56,10 +56,11 @@ var calculatePi = function() {
 	// https://www.jpl.nasa.gov/edu/news/2016/3/16/how-many-decimals-of-pi-do-we-really-need/
 	// pi = 3.141592653589793
 	// Pneumonic: 3. I Wish I Could Calculate Pi
-	//	pi = 3.141592
+	pi = 3.141592
 
 	return pi;
 }
 
-
-console.log(calculatePi());
+var piTry = calculatePi();
+console.log("pi="+piTry);
+console.log("Accurate to within " + (Math.PI-piTry));
