@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Attributes and CSS Exercise</title>
+    <style type="text/css">
+        main {
+            margin: 2em;
+            padding: 2em;
+            display: grid;
+            grid-template-columns: 50% 25% 25%;
+        }
+
+        button {
+            margin-left: 50%;
+            height: 2em;
+        }
+        h1 {
+            font-family: "Trebuchet MS";
+            text-align: center;
+        }
+
+        h3 {
+            letter-spacing: .5em;
+        }
+        h3:hover {
+            text-decoration: underline;
+            font-family: sans-serif;
+        }
+
+        li {
+            font-size: 1.25em;
+            font-family: "Trebuchet MS";
+        }
+
+        section {
+            padding: 2em;
+        }
+        body > main > section:nth-child(1) {
+            background-color: #fc5a8d;
+            color: #f1ddbb;
+        }
+
+        body > main > section:nth-child(2) {
+            background-color: #6f5242;
+            color: #fc5a8d;
+        }
+
+        body > main > section:nth-child(3) {
+            background-color: #f1ddbb;
+            color: #6f5242;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Traversing the DOM w/ jQuery!</h1>
+    <button>Highlight the last li element of each list</button>
+</header>
+<main>
+    <section>
+        <h3>Cohorts </h3>
+        <ul>
+            <li>Arches</li>
+            <li>Badlands</li>
+            <li>Carlsbad</li>
+            <li>Denali</li>
+            <li>Everglades</li>
+            <li>Franklin</li>
+            <li>Glacier</li>
+            <li>Hampton</li>
+            <li>Apollo</li>
+            <li>Balboa</li>
+            <li>Ike</li>
+            <li>Joshua</li>
+            <li>Kings</li>
+            <li>Lassen</li>
+            <li>Mammoth</li>
+            <li>Niagara</li>
+            <li>Olympic</li>
+            <li>Pinnacles</li>
+            <li>Quincy</li>
+            <li>Redwood</li>
+            <li>Sequoia</li>
+            <li>Teddy</li>
+            <li>Ulysses</li>
+        </ul>
+    </section>
+    <section>
+        <h3>State Parks of Texas</h3>
+        <ul>
+            <li>Big Bend</li>
+            <li>Guadalupe</li>
+            <li>Davis Mountains</li>
+            <li>Enchanted Rock</li>
+            <li>Lost Maples</li>
+            <li>Pedernales Falls</li>
+            <li>Palo Duro Canyon</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Amusement Parks</h3>
+        <ul>
+            <li>Disney World</li>
+            <li>6 Flags Over Texas</li>
+            <li>Sea World</li>
+            <li>Universal Studios</li>
+        </ul>
+    </section>
+</main>
+
+<script src="js/jquery-2.2.4.js" type="text/javascript"></script>
+<script type="text/javascript">
+    "use strict";
+
+    // Create a button that, when clicked, makes the last li in each ul have a yellow background.
+    $("button").click(function(event) {
+        $("ul").each(function(index, element) {
+            $(element).children().last().toggleClass("highlight");
+        });
+    });
+
+    // forEach approach
+    // $("button").click(function() {
+    //     Array.from($("ul")).forEach(function(element) {
+    //        $(element).children().last().toggleClass("highlight");
+    //     });
+    // });
+
+    // for loop approach
+    // $("button").click(function() {
+    //     var lists = $("ul");
+    //     for(var i = 0; i < lists.length; i++) {
+    //         $(lists[i]).children().last().toggleClass("highlight");
+    //     }
+    // });
+
+    // When any h3 is clicked, the lis underneath it should be bolded.
+    $("h3").click(function(event) {
+       $(event.target).next().css("font-weight", "bold");
+    });
+
+    // When any list item is clicked, first li of the parent ul should have a font color of blue.
+    $("li").click(function(event) {
+        $(event.target).parent().children().first().css("color", "blue");
+    });
+
+
+</script>
+</body>
