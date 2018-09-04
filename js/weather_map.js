@@ -1,69 +1,117 @@
 $(function() {
-    var sanAntonioID = 4726206;
+    // var sanAntonioID = 4726206;
+    var sanAntonioLat = 29.423017;
+    var sanAntonioLng = -98.48527;
     var weatherAppId = localStorage.getItem("weatherapikey");
     var weatherOptions = {};
-    weatherOptions.id = sanAntonioID;
+    // weatherOptions.id = sanAntonioID;
+    weatherOptions.lat = sanAntonioLat;
+    weatherOptions.lon = sanAntonioLng;
     weatherOptions.appid = weatherAppId;
 
-    console.log("Hello");
-    $.get("https://api.openweathermap.org/data/2.5/weather", weatherOptions).done(function(data){
-        console.log(data);
-        // high and low temps
-        // weather image
-        // current weather
-        // humidity
-        // wind
-        // pressure
+
+    var weatherData = function(temp_max, temp_min, imgName,
+                               weatherName, weatherDesc, humidity,
+                               windSpeed, pressure) {
+        var weatherCard = "<article class='card, col-xs-4, px-4'>";
 
         var highlowtemp = "";
-        var temp_max = parseFloat(data.main.temp_max) * 9/5 - 459.67;
-        highlowtemp += Math.floor(temp_max);
-        highlowtemp += "°/";
-        var temp_min = parseFloat(data.main.temp_min) * 9/5 - 459.67;
-        highlowtemp += Math.floor(temp_min);
+        temp_max = parseFloat(temp_max) * 9/5 - 459.67;
+        highlowtemp += Math.round(temp_max);
+        highlowtemp += "° / ";
+        temp_min = parseFloat(temp_min) * 9/5 - 459.67;
+        highlowtemp += Math.round(temp_min);
         highlowtemp += "°";
-        console.log(highlowtemp);
-        $("#localWeather").append("<h4>" + highlowtemp + "</h4>");
+        weatherCard += "<div class='temp, weather'>" + highlowtemp + "</div>";
 
         var weatherimg = ""
-        weatherimg += "<img src='http://openweathermap.org/img/w/"
-        weatherimg += data.weather[0].icon;
-        weatherimg += ".png'/>"
-        console.log(weatherimg);
-
-        $("#localWeather").append(weatherimg);
-
+        weatherimg += "<div class='icon, weather'><img src='http://openweathermap.org/img/w/"
+        weatherimg += imgName;
+        weatherimg += ".png'/></div>"
+        weatherCard += weatherimg;
 
         var currweather = ""
-        currweather += "<h4>"
-        currweather += data.weather[0].main;
+        currweather += "<div class='dailyweather, weather'>"
+        currweather += weatherName;
         currweather += " : ";
-        currweather += data.weather[0].description;
-        currweather += "</h4>"
-        console.log(currweather);
-        $("#localWeather").append(currweather);
+        currweather += weatherDesc;
+        currweather += "</div>"
+        weatherCard += currweather;
 
-        var humidity = ""
-        humidity += "<h4>Humidity: "
-        humidity += data.main.humidity;
-        humidity += "</h4>"
-        console.log(humidity);
-        $("#localWeather").append(humidity);
+        var hum = ""
+        hum += "<div class='humidity, weather'>Humidity: "
+        hum += humidity;
+        hum += "</div>"
+        weatherCard += hum;
 
         var wind = ""
-        wind += "<h4>Wind: "
-        wind += data.wind.speed;
-        wind += "</h4>"
-        console.log(wind);
-        $("#localWeather").append(wind);
+        wind += "<div class='wind, weather'>Wind: "
+        wind += windSpeed;
+        wind += "</div>"
+        weatherCard += wind;
 
-        var pressure = ""
-        pressure += "<h4>Pressure: "
-        pressure += data.main.pressure;
-        pressure += "</h4>"
-        console.log(pressure);
-        $("#localWeather").append(pressure);
+        var press = ""
+        press += "<div class='pressure, weather'>Pressure: "
+        press += pressure;
+        press += "</div>"
+        weatherCard += press;
+
+        return weatherCard;
+    }
+
+    $.get("https://api.openweathermap.org/data/2.5/weather", weatherOptions).done(function(data){
+        console.log(data);
+
+        var weatherDataCard = weatherData(
+            data.main.temp_max,
+            data.main.temp_min,
+            data.weather[0].icon,
+            data.weather[0].main,
+            data.weather[0].description,
+            data.main.humidity,
+            data.wind.speed,
+            data.main.pressure
+        );
+        // $("#localWeather").append(weatherDataCard);
     });
 
+    $.get("https://api.openweathermap.org/data/2.5/forecast", weatherOptions).done(function(data) {
+        console.log(data);
+        var weatherDataCard1 = weatherData(
+            data.list[0].main.temp_max,
+            data.list[0].main.temp_min,
+            data.list[0].weather[0].icon,
+            data.list[0].weather[0].main,
+            data.list[0].weather[0].description,
+            data.list[0].main.humidity,
+            data.list[0].wind.speed,
+            data.list[0].main.pressure
+        );
+        $("#localWeather").append(weatherDataCard1);
 
-})
+        var weatherDataCard2 = weatherData(
+            data.list[7].main.temp_max,
+            data.list[7].main.temp_min,
+            data.list[7].weather[0].icon,
+            data.list[7].weather[0].main,
+            data.list[7].weather[0].description,
+            data.list[7].main.humidity,
+            data.list[7].wind.speed,
+            data.list[7].main.pressure
+        );
+        $("#localWeather").append(weatherDataCard2);
+
+        var weatherDataCard3 = weatherData(
+            data.list[15].main.temp_max,
+            data.list[15].main.temp_min,
+            data.list[15].weather[0].icon,
+            data.list[15].weather[0].main,
+            data.list[15].weather[0].description,
+            data.list[15].main.humidity,
+            data.list[15].wind.speed,
+            data.list[15].main.pressure
+        );
+        $("#localWeather").append(weatherDataCard3);
+
+    });
+});
