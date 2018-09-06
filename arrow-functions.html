@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Arrow Functions</h1>
+
+
+<script>
+    // var sayHi = function(name) {
+    //     return `Hello, ${name}!`;
+    // }
+
+    // arrow function syntax
+    // the arrow takes the place of the word "function"
+    // if there's only one parameter, no parenthesis are need
+    // if the fn body is on one line, the return is implied
+    var sayHi = name => `Hello, ${name}!`;
+
+    var sayHiToFullName = (firstName, lastName) => `Hello to ${lastName}, ${firstName}`;
+
+    alert(sayHiToFullName("Daniel", "Fryar"));
+
+    [1, 2, 3, 4, 5].forEach(num => console.log(num + 2));
+
+
+</script>
+</body>
+</html>
