@@ -10,7 +10,12 @@
     <main class="container">
     <h1>Weather Application</h1>
 
-    <section class="row" id="localWeather"></section>
+        <input id="latitude" value="29.423017"/>
+        <input id="longitude" value="-98.48527"/>
+        <button id="button">Go</button>
+    <h4 id="cityName"></h4>
+        <section class="row" id="localWeather"></section>
+        <section id="map-canvas"></section>
 
 
 
@@ -18,6 +23,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="js/weather_map.js"></script>
 
 </body>
