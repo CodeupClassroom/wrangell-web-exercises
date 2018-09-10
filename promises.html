@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promises</title>
+</head>
+<body>
+    <h1>Promises: <small>Open your JS console to see the results.</small></h1>
+
+    <p>Promises are a way of designating whether or not something has occurred</p>
+
+    <ol>
+        <li>Pending</li>
+        <li>Resolved</li>
+        <li>Rejected</li>
+    </ol>
+
+</body>
+<script>
+    // Example of using promises as triggers, almost like making a custom "event"
+
+    function countToFiveHundredMillion() {
+        return new Promise((resolve, reject) => {
+
+            for(var i = 1; i <= 500000000; i++) {}
+
+            if(i >= 500000000) {
+                resolve("We counted to five hundred million, yay!");
+            } else {
+                reject("We did not count to five hundred million. Oh no!");
+            }
+        });
+    }
+
+    countToFiveHundredMillion().then(data => {
+        console.log(data);
+    });
+    countToFiveHundredMillion().catch(error => {
+        console.log(error);
+    });
+
+
+    // Exercise problem #1
+    // Write a function named wait that accepts a number as a parameter, and returns a promise that resolves after the passed number of milliseconds.
+
+    const wait = (delay) => {
+        return new Promise((resolve, reject) => {
+           setTimeout(resolve, delay);
+        });
+    };
+
+    wait(4000).then(() => console.log('You\'ll see this after 4 seconds'));
+    wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
+    wait(2000).then(() => console.log('You\'ll see this after 2 seconds'));
+    wait(1000).then(() => console.log('You\'ll see this after 1 second'));
+
+</script>
+</html>
