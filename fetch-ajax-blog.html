@@ -5,6 +5,42 @@
     <title>Title</title>
 </head>
 <body>
+    <h1>Fetch AJAX Tool Store</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Categories</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        "use strict";
+
+        // If you need to use this example for the GitHub api, find the URL that contains the latest "events"
+        let url = "./data/inventory.json";
+
+        fetch(url).then(response => {
+
+            response.json().then(tools => {
+                renderTools(tools);
+            });
+
+        }).catch(error => console.log(error));
+
+        const renderTools = (tools) => {
+            let tbody = document.querySelector("tbody");
+
+            tools.map(tool => {
+                tbody.innerHTML += `<tr><td>${tool.title}</td><td>${tool.price}</td><td>${tool.categories.join(", ")}</td><tr>`;
+            });
+        };
+
+
+    </script>
 
 </body>
 </html>
